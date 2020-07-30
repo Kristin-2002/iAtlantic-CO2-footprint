@@ -18,8 +18,8 @@ Note that this method does not necessarily agree with reality and adds a potenti
 
 ## Preliminary results
 The iAtlantic Kick Off Meeting in Edinburgh in 2019 had 55 participants from 15 countries located in Europe, America and Africa. 
-The estimated travel CO<sub>2</sub> emission equivalents of this meeting is 50.2 tons of (click [here](https://travel-footprint-calculator.irap.omp.eu/estimation/2020-07-30_14:37:52_d3c6.html) for more details).
-On the iAtlantic General Assembly in 2020, that needed to be hold virtually because of Covid-19, 144 members attended from 16 countries located in Europe, America, South Africa and Australia.
+The estimated travel CO<sub>2</sub> emission equivalents of this meeting is 50.2 tons (click [here](https://travel-footprint-calculator.irap.omp.eu/estimation/2020-07-30_14:37:52_d3c6.html) for more details).
+On the iAtlantic General Assembly in 2020, that needed to be hold virtually because of Covid-19, 144 members attended from 16 countries located in Europe, America, South Africa and Australia (click [here](https://travel-footprint-calculator.irap.omp.eu/estimation/2020-07-30_14:35:13_d0fb.html) for more details).
 This are 2.6 times the amount of the participants which attended the physical meeting in 2019. 
 If all 144 participants would have attended the planned physical meeting in South Africa, they would have emmitted 512.6 tons of CO<sub>2</sub> emission equivalents by travelling to the meeting location.
 This is 10 times as high as the emission estimated for the 2019 Kick Off meeting.
