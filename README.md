@@ -6,6 +6,8 @@ For both meetings we estimated the travel carbon footprint using the [Travel Car
 Of course, the travel carbon footprint of the virtual iAtlantic General Assembly 2020 is a theoretical value, if the physical meeting in Cape Town would not have been cancelled
 due to Covid-19 and if all participants would have actually attent the physical meeting.
 
+**You want to contribute?** Great, please follow the instructions in the [Wiki](https://github.com/Kristin-2002/iAtlantic-CO2-footprint/wiki/How-to-contribute).
+
 ## Data preparation
 The estimation is based on data that was collected for both meetings listing the number of participants per country (see [KO2019](data/iAtlantic_KickOff2019_particitpants_orig.csv) and [GA2020](data/iAtlantic_GA2020_particitpants_orig.csv)). 
 The [Travel Carbon Footprint Estimator](https://travel-footprint-calculator.irap.omp.eu/home.html) needs additional information about the cities the participants come from.
