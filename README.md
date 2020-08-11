@@ -30,6 +30,6 @@ This is 10 times as high as the emission estimated for the 2019 Kick Off meeting
 ![Carbon emission Kick Off meeting 2019](./figures/iAtlantic_KickOff2019_CO2_emission.png)
 Estimated by the [Travel Carbon Footprint Estimator](https://travel-footprint-calculator.irap.omp.eu/home.html) by Didier Barret using ADEME (mul. factor=2, from Carbon database), MYCLIMATE (mul. factor=2), DEFRA (mul. factor=RFI=1.9) and train travel assumed for distances below 500 km .
 
-### iAtlantic General Assembly 2020 - v2 (success)
+### iAtlantic General Assembly 2020 
 ![Carbon emission General Assembly 2020](./figures/iAtlantic_GA2020_CO2_emission.png)
 Estimated by the [Travel Carbon Footprint Estimator](https://travel-footprint-calculator.irap.omp.eu/home.html) by Didier Barret using ADEME (mul. factor=2, from Carbon database), MYCLIMATE (mul. factor=2), DEFRA (mul. factor=RFI=1.9) and train travel assumed for distances below 500 km .
