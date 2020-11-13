@@ -4,7 +4,7 @@ library(ggimage) # for images in the graphs
 library(leaflet) # for the map
 library(dplyr) # for data manipulation
 library(sp) # for spatial data
-#library(geosphere) # for curved flight paths
+library(geosphere) # for curved flight paths
 
 ### Parameters
 lunar_distance_km <- 400000
@@ -34,6 +34,8 @@ iAtlantic_icon <- makeIcon("figures/iatlantic.png",
                            iconWidth = 20, iconHeight = 40)
 
 edinburgh <- c(-3.1882670, 55.95325) #lon lat
+pretoria <- c(28.2294000, -25.70690) # lon lat
+
 cities <- GA2019_minimum_travel %>%
   select(City, Country, Longitude, Latitude) %>%
   distinct() %>%
@@ -41,21 +43,12 @@ cities <- GA2019_minimum_travel %>%
   group_split()
 travel_lines <- list()
 for(i in 1:length(cities)){
-  mtrx <- matrix(data = as.numeric(c(cities[[i]][,3:4],edinburgh)),
-                 nrow = 2, byrow = T)
-  colnames(mtrx) <- c("lon", "lat")
-  travel_lines[[i]] <- sp::Line(mtrx)
+  temp <- gcIntermediate(edinburgh, as.numeric(cities[[i]][,3:4]),
+                         n=100, addStartEnd=TRUE,
+                         sp=FALSE)
+  travel_lines[[i]] <- sp::Line(temp)
 }
 travel_lines <- sp::Lines(travel_lines, ID = "id")
-
-# destination <- data.frame(
-#   City = "Edinburgh",
-#   Country = "UK",
-#   group = 1:length(travel_lines$City),
-#   Longitude = rep(, length(travel_lines$City)),
-#   Latitude = rep(, length(travel_lines$City))
-# )
-# travel_lines <- rbind(travel_lines, destination)
   
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -108,11 +101,9 @@ server <- function(input, output) {
                   lng = GA2019_minimum_travel$Longitude,
                   popup = GA2019_minimum_travel$City,
                   icon = iAtlantic_icon) %>%
-       leaflet::addPolylines(data = travel_lines) # spatial lines from sp package
-         # data = travel_lines,
-         # lng = ~Longitude,
-         # lat = ~Latitude,
-         # group = ~group)
+       leaflet::addPolylines(data = travel_lines, # spatial lines from sp package
+                             color = "orange",
+                             opacity = 1) 
    )
 }
 
