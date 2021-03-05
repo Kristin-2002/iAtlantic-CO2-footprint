@@ -30,15 +30,24 @@ longitude_in_km_EQUATORIAL <- 111
 typical_US_household_ton_co2_perYEAR <- 48
 
 ### Import data
-GA2019 <- read.csv("data/iAtlantic_KickOff2019_CO2_emission.csv")
-MSM75a <- read.csv("data/2018_MSM75_emissions_to_harbour.csv")
-MSM75b <- read.csv("data/2018_MSM75_emissions_back.csv")
-PS116_1a <- read.csv("data/2018_PS116_1_emissions_to_harbour.csv")
-PS116_1b <- read.csv("data/2018_PS116_1_emissions_back.csv")
-PS116_12a <- read.csv("data/2018_PS116_1and2_emissions_to_harbour.csv")
-PS116_12b <- read.csv("data/2018_PS116_1and2_emissions_back.csv")
-PS116_2a <- read.csv("data/2018_PS116_2_emissions_to_harbour.csv")
-PS116_2b <- read.csv("data/2018_PS116_2_emissions_back.csv")
+GA2019 <- read.csv("data/CO2_emissions/iAtlantic_KickOff2019_CO2_emission.csv")
+MSM75a <- read.csv("data/CO2_emissions/2018_MSM75_emissions_to_harbour.csv")
+MSM75b <- read.csv("data/CO2_emissions/2018_MSM75_emissions_back.csv")
+PS116_1a <- read.csv("data/CO2_emissions/2018_PS116_1_emissions_to_harbour.csv")
+PS116_1b <- read.csv("data/CO2_emissions/2018_PS116_1_emissions_back.csv")
+PS116_12a <- read.csv("data/CO2_emissions/2018_PS116_1and2_emissions_to_harbour.csv")
+PS116_12b <- read.csv("data/CO2_emissions/2018_PS116_1and2_emissions_back.csv")
+PS116_2a <- read.csv("data/CO2_emissions/2018_PS116_2_emissions_to_harbour.csv")
+PS116_2b <- read.csv("data/CO2_emissions/2018_PS116_2_emissions_back.csv")
+PS120_1a <- read.csv("data/CO2_emissions/2019_PS120_1_emissions_to.csv")
+PS120_1b <- read.csv("data/CO2_emissions/2019_PS120_1_emissions_back.csv")
+PS120_2a <- read.csv("data/CO2_emissions/2019_PS120_2_emissions_to.csv")
+PS120_2b <- read.csv("data/CO2_emissions/2019_PS120_2_emissions_back.csv")
+PS120_12a <- read.csv("data/CO2_emissions/2019_PS120_1and2_emissions_to.csv")
+PS120_12b <- read.csv("data/CO2_emissions/2019_PS120_1and2_emissions_back.csv")
+RB1903a <- read.csv("data/CO2_emissions/2019_RB1903_emissions_to.csv")
+RB1903b <- read.csv("data/CO2_emissions/2019_RB1903_emissions_back.csv")
+
 
 ### Data frames
 travel_data <- dplyr::bind_rows(
@@ -51,6 +60,14 @@ travel_data <- dplyr::bind_rows(
   "PS116_12b" = PS116_12b, 
   "PS116_2a" = PS116_2a, 
   "PS116_2b" = PS116_2b,
+  "PS120_1a" = PS120_1a,
+  "PS120_1b" = PS120_1b,
+  "PS120_2a" = PS120_2a,
+  "PS120_2b" = PS120_2b,
+  "PS120_12a" = PS120_12a,
+  "PS120_12b" = PS120_12b,
+  "RB1903a" = RB1903a,
+  "RB1903b" = RB1903b,
   .id = "Meeting")
 
 TravelCities <- data.frame(
@@ -62,7 +79,15 @@ TravelCities <- data.frame(
               "PS116_12a", 
               "PS116_12b", 
               "PS116_2a", 
-              "PS116_2b"),
+              "PS116_2b",
+              "PS120_1a",
+              "PS120_1b",
+              "PS120_2a",
+              "PS120_2b",
+              "PS120_12a",
+              "PS120_12b",
+              "RB1903a",
+              "RB1903b"),
   TravelCity = c("Edinburgh",
                  "Reykjavik",
                  "Reykjavik",
@@ -71,25 +96,51 @@ TravelCities <- data.frame(
                  "Bremerhaven",
                  "Cape Town",
                  "Las Palmas",
-                 "Cape Town"),
-  toLon = c(-3.1883749,
-            -21.9422367,
-            -21.9422367,
-            8.5865509,
-            -15.43798,
-            8.5865509,
-            18.420499,
-            -15.43798,
-            18.420499),
-  toLat = c(55.95335,
-            64.14598,
-            64.14598,
-            53.55223,
-            28.12003,
-            53.55223,
-            -33.9197,
-            28.12003,
-            -33.9197)
+                 "Cape Town",
+                 "Stanley",
+                 "Las Palmas",
+                 "Las Palmas",
+                 "Bremerhaven",
+                 "Stanley",
+                 "Bremerhaven",
+                 "Charleston",
+                 "Charleston"),
+  toLon = c(-3.1883749,  # Edinburgh
+            -21.9422367, # Reykjavik
+            -21.9422367, # Reykjavik
+            8.5865509,   # Bremerhaven
+            -15.43798,   # Las Palmas
+            8.5865509,   # Bremerhaven
+            18.420499,   # Cape Town
+            -15.43798,   # Las Palmas
+            18.420499,   # Cape Town
+            -57.85402,   # Stanley
+            -15.43798,    # Las Palmas
+            -15.43798,    # Las Palmas
+            8.5865509,   # Bremerhaven
+            -57.85402,   # Stanley
+            8.5865509,   # Bremerhaven
+            -79.93729,   # Charleston
+            -79.93729   # Charleston
+            ),
+  toLat = c(55.95335,  # Edinburgh
+            64.14598,  # Reykjavik
+            64.14598,  # Reykjavik
+            53.55223,  # Bremerhaven
+            28.12003,  # Las Palmas
+            53.55223,  # Bremerhaven
+            -33.9197,  # Cape Town
+            28.12003,  # Las Palmas
+            -33.9197,  # Cape Town
+            -51.6945,  # Stanley
+            28.12003,   # Las Palmas
+            28.12003,   # Las Palmas
+            53.55223,  # Bremerhaven
+            -51.6945,  # Stanley
+            53.55223,  # Bremerhaven
+            32.78039,  # Charleston
+            32.78039  # Charleston
+  )
 )
 
 travel_data <- dplyr::left_join(travel_data, TravelCities, by = "Meeting") %>%
@@ -107,13 +158,16 @@ ui <- fluidPage(
      column(width = 2, 
             checkboxGroupInput(
               inputId = "meetings",  label = "What meetings to include?",
-              selected = c("GA2019", "MSM75", "PS116"),
+              selected = c("GA2019", "MSM75", "PS116", "PS120", "RB1903"),
               choices = c(
                 "2019 Kick-off meeting" = "GA2019", 
                 "2018 Cruise MSM75" = "MSM75",
-                "2018 Cruise PS116 (Leg 1 and 2)" = "PS116"))),  
+                "2018 Cruise PS116 (Leg 1 and 2)" = "PS116",
+                "2019 Cruise PS120" = "PS120",
+                "2019 Cruise RB1903" = "RB1903"))),  
      column(width = 9, align="center",
-            plotOutput("total_travel_distance", width = "900px",  height = "300px")
+            #plotOutput("total_travel_distance", width = "900px",  height = "300px")
+            plotOutput("total_travel_distance")
       )
     ),
   
@@ -178,11 +232,6 @@ server <- function(input, output) {
       x = c(x_lim/2), 
       y = c(7), 
       txt = c(paste(round(travel_distance_km()),"km"))
-      # x = c(rep(x_lim/2,2)), 
-      # y = c(7,6), 
-      # txt = c(paste("Distance Earth to next planet:",x_lim,"km"),
-      #         paste("iAtlantic travel:",round(travel_distance_km()),"km")
-      # )
     )
   })
   
@@ -291,7 +340,6 @@ server <- function(input, output) {
      plot
    })
    
-   #0, -20
   compensation_area_km2 <- reactive({
     total <- sum(co2_totals()$co2_ton)
     total / algae_co2_uptake_ton_perKM2_perYEAR
