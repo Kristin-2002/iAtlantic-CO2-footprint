@@ -1,0 +1,6 @@
+"city","country","address","latitude","longitude","co2_kg","distance_km","plane trips_amount","train trips_amount"
+"Galway City"," Ireland","Galway City, County Galway, Connacht, Ireland","53.2744122","-9.0490632","0.0","0.0","0","8"
+"Kilrush"," Ireland","Kilrush, Kilrush Urban, West Clare Municipal District, County Clare, Munster, Ireland","52.6397222","-9.4833283","4.565","152.668","0","1"
+"Dublin"," Ireland","Dublin, Dublin 1, Leinster, Ireland","53.3497645","-6.2602732","11.09","370.897","0","1"
+"Cork"," Ireland","Cork, County Cork, Munster, Ireland","51.898627","-8.4705942","75.535","2526.27","0","8"
+"Suva"," Fiji","Suva, Central, 679, Fiji","-18.1415884","178.4421662","6003.539","32110.278","1","0"

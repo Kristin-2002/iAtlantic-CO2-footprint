@@ -1,0 +1,9 @@
+To harbour:
+ 2018_PS116_2_to_harbour (success)
+Using ADEME (mul. factor=2, from Carbon database), MYCLIMATE (mul. factor=2), DEFRA (mul. factor=RFI=1.9) and train travel assumed for distances below 500 km . 
+https://travel-footprint-calculator.irap.omp.eu/estimation/2021-02-19_17:09:24_dcf6.html
+
+Back:
+ 2018_PS116_2_back (success)
+Using ADEME (mul. factor=2, from Carbon database), MYCLIMATE (mul. factor=2), DEFRA (mul. factor=RFI=1.9) and train travel assumed for distances below 500 km . 
+https://travel-footprint-calculator.irap.omp.eu/estimation/2021-02-19_17:11:13_dbae.html

@@ -1,0 +1,7 @@
+"city","country","address","latitude","longitude","co2_kg","distance_km","plane trips_amount","train trips_amount"
+"Reykjavik"," Iceland","Reykjavik, Capital Region, Iceland","64.145981","-21.9422367","0.0","0.0","0","1"
+"Bergen"," Norway","Bergen, Vestland, Norway","60.3943055","5.3259192","806.861","2916.677","1","0"
+"Cambridge"," United Kingdom","Cambridge, Cambridgeshire, East of England, England, United Kingdom","52.2034823","0.1235817","1010.922","3671.216","1","0"
+"Gdynia"," Poland","Gdynia, Wejherowo County, Pomeranian Voivodeship, Poland","54.50383255","18.462806155884614","2480.696","9900.569","2","0"
+"Hamburg"," Germany","Hamburg, Germany","53.5437641","10.0099133","3390.246","12891.678","3","0"
+"Kiel"," Germany","Kiel, Schleswig-Holstein, Germany","54.3227085","10.135555","15561.184","58610.378","14","0"
