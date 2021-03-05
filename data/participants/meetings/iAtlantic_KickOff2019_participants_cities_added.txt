@@ -1,5 +1,4 @@
-﻿City,Country
-Ponta Delgada,Azores
+﻿Ponta Delgada,Azores
 Ponta Delgada,Azores
 Brussel,Belgium
 Brussel,Belgium
