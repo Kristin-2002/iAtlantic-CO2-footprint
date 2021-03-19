@@ -8,10 +8,11 @@ library(geosphere) # for curved flight paths
 
 ### Parameters
 # Distance of heavenly objects in km
+planet_plot_axis <- 5
 planets <- data.frame(
   object = c("Earth", "Moon", "Venus", "Mars", "Mercury"),
   x = c(1, 400000, 41400000, 78340000, 91691000),
-  y = c(5,5,5,5, 5),
+  y = rep(planet_plot_axis, 5),
   image = c("figures/earth.png","figures/moon.png","figures/venus.png",
             "figures/mars.png", "figures/mercury.png"),
   size_correction = c(0.25, 0.15, 0.25, 0.25, 0.25)
@@ -211,10 +212,24 @@ server <- function(input, output) {
     sum(temp$distance_km)
   })
   
-  rocket_pos <- reactive({
+  segments.df <- reactive({
+    xmoon <- planets$x[which(planets$object == "Moon")]
+    times_to_moon <- travel_distance_km() / xmoon
     data.frame(
-      x = travel_distance_km(),
-      y = 5,
+      x = rep(0, ceiling(times_to_moon)),
+      xend = c(rep(xmoon, floor(times_to_moon)), (times_to_moon-floor(times_to_moon))*xmoon),
+      y = seq(planet_plot_axis, planet_plot_axis+ceiling(times_to_moon)-1),
+      yend = seq(planet_plot_axis, planet_plot_axis+ceiling(times_to_moon)-1)
+    )
+  })
+  
+  rocket_pos <- reactive({
+    seg.df <- segments.df()
+    data.frame(
+      # x = travel_distance_km(),
+      # y = 5,
+      x = seg.df$xend[nrow(seg.df)],
+      y = seg.df$yend[nrow(seg.df)],
       image = "figures/rocket.png",
       size_correction = 0.25
       )
@@ -227,10 +242,10 @@ server <- function(input, output) {
   })
   
   label_pos <- reactive({
-    x_lim <- x_lim()
+    x_lim <- 400000
     data.frame(
       x = c(x_lim/2), 
-      y = c(7), 
+      y = c(15), 
       txt = c(paste(round(travel_distance_km()),"km"))
     )
   })
@@ -239,6 +254,7 @@ server <- function(input, output) {
   output$total_travel_distance <- renderPlot({
     label_position <- label_pos()
     rocket <- rocket_pos()
+    segs.df <- segments.df()
     plot <- ggplot() +
       # Add planet images and names
       geom_image(
@@ -248,8 +264,8 @@ server <- function(input, output) {
          asp = asp.ratio) +
       geom_text(
         data = planets,
-        aes(x=x, y=y-2, label = object),
-        size = 5
+        aes(x=x, y=y-4, label = object),
+        size = 10
       ) +
       # Add rocket image and arrow
       geom_image(
@@ -257,19 +273,20 @@ server <- function(input, output) {
         aes(x=x, y=y, image=image),
         size = rocket$size_correction, by = "width", 
         asp = asp.ratio) +
-       geom_segment(
-         aes(x=1,y=5,xend=travel_distance_km(),yend=5),
-         arrow = arrow(length = unit(0.5, "cm")),
-         colour="orange", size = 2
-       ) +
+      geom_segment(
+        data = segs.df,
+        aes(x=x,y=y,xend=xend,yend=yend),
+        arrow = arrow(length = unit(0.5, "cm")),
+        colour="orange", size = 2
+      ) +
       # Add distance travelled
        geom_text(
          data = label_position,
          aes(x=x, y=y, label=txt),
          size=10
        ) +
-       xlim(0-x_lim()/10,x_lim()+x_lim()/10) +
-       ylim(2,8) +
+      xlim(-50000, 415000) +
+       ylim(1,15) +
        theme(
          aspect.ratio = asp.ratio
       ) +
