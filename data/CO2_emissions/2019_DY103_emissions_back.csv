@@ -1,0 +1,6 @@
+"city","country","address","latitude","longitude","co2_kg","distance_km","plane trips_amount","train trips_amount"
+"Southampton"," United Kingdom","Southampton, South East, England, SO14 2BY, United Kingdom","50.9025349","-1.404189","0.0","0.0","0","26"
+"Portsmouth"," United Kingdom","Portsmouth, South East, England, United Kingdom","50.8036831","-1.075614","1.528","51.101","0","1"
+"Ostend"," Belgium","Ostend, West Flanders, Flanders, 8400, Belgium","51.2258565","2.919496","18.193","608.455","0","1"
+"Plymouth"," United Kingdom","Plymouth, South West England, England, United Kingdom","50.3712659","-4.1425658","24.152","807.757","0","2"
+"Medellín"," Colombia","Medellín, Zona Urbana Medellín, Medellín, Valle de Aburrá, Antioquia, 0500, Colombia","6.2443382","-75.573553","3139.486","16723.981","1","0"
